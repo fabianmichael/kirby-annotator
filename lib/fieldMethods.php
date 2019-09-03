@@ -23,6 +23,6 @@ return array(
     	return floatval($field->value) * 100;
     },
     'toPercentString' => function($field) {
-    	return floatval($field->value) * 100 . '%';
+    	return rtrim(rtrim(sprintf('%F', floatval($field->value) * 100), '0'), '.') . '%';
     },
 );
