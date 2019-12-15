@@ -23,6 +23,7 @@ return array(
     	return floatval($field->value) * 100;
     },
     'toPercentString' => function($field) {
-    	return floatval($field->value) * 100 . '%';
+        $percent = sprintf('%F', floatval($field->value) * 100); // convert to string while ignoring localized decimal point
+    	return rtrim(rtrim($percent, '0'), '.') . '%'; // trim trailing zeros
     },
 );
